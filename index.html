@@ -23,8 +23,7 @@
   .brand .accent{color:var(--accent)}
   .mast .meta{font-size:12.5px;color:var(--ink-soft);text-align:right;font-variant-numeric:tabular-nums}
   .mast .meta .date{font-size:15px;font-weight:600;color:var(--ink)}
-  .kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;
-    color:var(--ink-soft);font-weight:600;margin-bottom:8px}
+  .kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:8px}
 
   .distrib{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:18px 0 6px;border:1px solid var(--line)}
   .distrib span{transition:width .6s ease}
@@ -32,42 +31,45 @@
     padding-bottom:24px;border-bottom:1px solid var(--line)}
   .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle}
 
-  .charts{display:grid;grid-template-columns:1fr 1.5fr;gap:28px;margin:28px 0 8px}
+  /* 기간 선택 */
+  .period{display:flex;align-items:center;gap:7px;margin:22px 0 2px;flex-wrap:wrap}
+  .period .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-right:2px}
+  .pchip{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);font-family:inherit;
+    font-size:12.5px;padding:5px 13px;border-radius:16px;cursor:pointer;font-weight:600;transition:all .15s}
+  .pchip:hover{border-color:var(--ink-soft)}
+  .pchip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .period .loading{font-size:12px;color:var(--ink-soft);margin-left:6px;display:none}
+  .period .loading.show{display:inline}
+
+  .charts{display:grid;grid-template-columns:1fr 1.5fr;gap:28px;margin:16px 0 8px}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
-  .panel h3{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
-    color:var(--ink-soft);margin-bottom:14px;font-weight:600}
+  .panel h3{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;font-weight:600}
   .chart-box{position:relative;height:200px}
 
-  /* 가로 2단 레이아웃 */
   .columns{display:grid;grid-template-columns:1.7fr 1fr;gap:34px;align-items:start;margin-top:10px}
   @media(max-width:840px){.columns{grid-template-columns:1fr;gap:20px}}
   .col-edu{position:sticky;top:18px}
   @media(max-width:840px){.col-edu{position:static}}
 
-  /* 섹션 헤더 공통 */
   .sec-head{display:flex;align-items:center;gap:10px;padding-top:16px;margin:0 0 16px;border-top:2px solid var(--ink)}
   .sec-head.edu-top{border-top-color:var(--edu)}
   .sec-head h2{font-size:18px;font-weight:800;letter-spacing:-.4px}
   .sec-head .cnt{font-size:12px;font-weight:700;color:#fff;padding:3px 11px;border-radius:12px;background:var(--ink)}
   .sec-head.edu-top .cnt{background:var(--edu)}
 
-  /* 교육 카드 (세로 스택) */
   .edu-grid{display:flex;flex-direction:column;gap:10px}
-  .edu-card{display:block;background:var(--card);border:1px solid var(--line);
-    border-left:3px solid var(--edu);border-radius:8px;padding:14px 16px;
-    text-decoration:none;transition:border-color .15s}
+  .edu-card{display:block;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--edu);
+    border-radius:8px;padding:14px 16px;text-decoration:none;transition:border-color .15s}
   .edu-card:hover{border-left-color:var(--ink)}
   .edu-card .t{font-size:14px;font-weight:600;color:var(--ink);line-height:1.4}
   .edu-card .m{font-size:12px;color:var(--ink-soft);margin-top:8px}
   .edu-card .m::before{content:"📌";font-size:10px;margin-right:5px}
-  .edu-empty{font-size:13px;color:var(--ink-soft);background:var(--card);border:1px dashed var(--line);
-    border-radius:8px;padding:20px;text-align:center}
+  .edu-empty{font-size:13px;color:var(--ink-soft);background:var(--card);border:1px dashed var(--line);border-radius:8px;padding:20px;text-align:center}
 
-  /* 필터 */
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;align-items:center}
   .filters .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-right:4px}
-  .chip{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);
-    font-family:inherit;font-size:13px;padding:6px 13px;border-radius:20px;cursor:pointer;transition:all .15s;font-weight:500}
+  .chip{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);font-family:inherit;
+    font-size:13px;padding:6px 13px;border-radius:20px;cursor:pointer;transition:all .15s;font-weight:500}
   .chip:hover{border-color:var(--ink-soft)}
   .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
   .chip .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
@@ -87,9 +89,11 @@
   .a-src::before{content:"●";font-size:6px;vertical-align:middle;margin-right:6px;color:var(--accent)}
 
   .empty{text-align:center;padding:50px;color:var(--ink-soft);font-size:14px}
-  .banner{background:#FFF6E6;border:1px solid #E8D49A;color:#7A5B12;font-size:12.5px;
-    padding:9px 14px;border-radius:8px;margin:18px 0;text-align:center}
+  .banner{background:#FFF6E6;border:1px solid #E8D49A;color:#7A5B12;font-size:12.5px;padding:9px 14px;border-radius:8px;margin:18px 0;text-align:center}
   .banner code{background:#fff;padding:1px 5px;border-radius:3px;font-size:11.5px}
+  .more{display:block;width:100%;margin-top:6px;padding:11px;background:var(--card);border:1px solid var(--line);
+    border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer}
+  .more:hover{border-color:var(--ink-soft)}
 
   @media(max-width:720px){.charts{grid-template-columns:1fr}.brand{font-size:30px}}
 </style>
@@ -112,36 +116,28 @@
 
   <div id="banner"></div>
 
-  <div class="charts">
-    <div class="panel">
-      <h3>카테고리 분포</h3>
-      <div class="chart-box"><canvas id="donut"></canvas></div>
-    </div>
-    <div class="panel">
-      <h3>최근 7일 수집 추이</h3>
-      <div class="chart-box"><canvas id="trend"></canvas></div>
-    </div>
+  <div class="period" id="period">
+    <span class="lbl">기간</span>
+    <button class="pchip" data-d="7">최근 7일</button>
+    <button class="pchip on" data-d="14">14일</button>
+    <button class="pchip" data-d="30">30일</button>
+    <span class="loading" id="loading">불러오는 중…</span>
   </div>
 
-  <!-- 가로 2단: 좌 뉴스 / 우 교육 -->
+  <div class="charts">
+    <div class="panel"><h3>카테고리 분포</h3><div class="chart-box"><canvas id="donut"></canvas></div></div>
+    <div class="panel"><h3>최근 7일 수집 추이</h3><div class="chart-box"><canvas id="trend"></canvas></div></div>
+  </div>
+
   <div class="columns">
-    <!-- 좌: HR 뉴스 -->
     <div class="col-news">
-      <div class="sec-head">
-        <h2>📰 HR 뉴스</h2>
-        <span class="cnt" id="newsCount"></span>
-      </div>
+      <div class="sec-head"><h2>📰 HR 뉴스</h2><span class="cnt" id="newsCount"></span></div>
       <div class="filters" id="filters"><span class="lbl">필터</span></div>
       <div class="count-line" id="countLine"></div>
       <div id="list"></div>
     </div>
-
-    <!-- 우: 교육 · 세미나 -->
     <aside class="col-edu">
-      <div class="sec-head edu-top">
-        <h2>📚 교육·세미나</h2>
-        <span class="cnt" id="eduCount"></span>
-      </div>
+      <div class="sec-head edu-top"><h2>📚 교육·세미나</h2><span class="cnt" id="eduCount"></span></div>
       <div class="edu-grid" id="eduList"></div>
     </aside>
   </div>
@@ -155,8 +151,9 @@ const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwNCgSqrNRoBMiTRrDG
 
 const CAT_COLORS = {'채용':'#0E7C7B','노무':'#C2703D','평가보상':'#3D5A80','조직문화':'#8E5572','HR테크':'#566246','기타':'#8A8578'};
 const ORDER = ['채용','노무','평가보상','조직문화','HR테크','기타'];
+const PAGE = 40;  // 뉴스 한 번에 표시할 개수
 
-let ALL = [], ALL_EDU = [], activeCat = '전체';
+let ALL = [], ALL_EDU = [], activeCat = '전체', PERIOD = 14, shown = PAGE;
 
 function daysAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString();}
 
@@ -175,20 +172,32 @@ const DEMO = {
     {title:'노동법 개정 대응 실무 교육 (3월 과정)',pubDate:daysAgo(0),source:'인사드림'},
     {title:'채용 브랜딩 워크숍 — 지원자 경험 설계',pubDate:daysAgo(1),source:'온오프믹스'},
     {title:'성과평가 제도 설계 마스터클래스',pubDate:daysAgo(2),source:'HR아카데미'},
-    {title:'조직문화 진단·개선 실무 과정',pubDate:daysAgo(3),source:'패스트캠퍼스'},
   ].map(e=>({...e,link:'#',keyword:''}))
 };
 
+function bindPeriod(){
+  document.querySelectorAll('.pchip').forEach(b=>{
+    b.onclick=()=>{
+      PERIOD=+b.dataset.d;
+      document.querySelectorAll('.pchip').forEach(x=>x.classList.toggle('on',x===b));
+      load();
+    };
+  });
+}
+
 async function load(){
   document.getElementById('today').textContent = fmtDate(new Date(),true);
+  document.getElementById('loading').classList.add('show');
   if(!WEB_APP_URL){ banner('데모 데이터 표시 중. <code>WEB_APP_URL</code>을 넣으면 실제 데이터가 나타납니다.'); render(DEMO); return; }
   try{
-    const res = await fetch(WEB_APP_URL);
+    const url = WEB_APP_URL + (WEB_APP_URL.includes('?')?'&':'?') + 'days=' + PERIOD;
+    const res = await fetch(url);
     const data = await res.json();
     if((!data.articles||!data.articles.length)&&(!data.education||!data.education.length)){
-      banner('아직 수집된 데이터가 없습니다. Apps Script에서 <code>collectAll()</code>을 한 번 실행해 보세요.');
-      render(DEMO); return;
+      banner('이 기간에 수집된 데이터가 없습니다. 기간을 늘리거나 Apps Script에서 <code>collectAll()</code>을 실행해 보세요.');
+      render({updatedAt:new Date().toISOString(),articles:[],education:[]}); return;
     }
+    document.getElementById('banner').innerHTML='';
     render(data);
   }catch(e){
     banner('데이터를 불러오지 못했습니다. 웹 앱 배포(액세스: 모든 사용자)를 확인하세요. 지금은 데모를 표시합니다.');
@@ -201,6 +210,8 @@ function banner(html){document.getElementById('banner').innerHTML='<div class="b
 function render(data){
   ALL = data.articles || [];
   ALL_EDU = data.education || [];
+  shown = PAGE;
+  document.getElementById('loading').classList.remove('show');
   document.getElementById('updated').textContent = '업데이트 ' + fmtDate(new Date(data.updatedAt),false);
   buildDistrib(); buildFilters(); drawDonut(); drawTrend(); renderList(); renderEdu();
 }
@@ -231,7 +242,7 @@ function buildFilters(){
     const b=document.createElement('button');
     b.className='chip'+(k===activeCat?' on':'');
     b.innerHTML = k==='전체' ? '전체 '+ALL.length : `<span class="dot" style="background:${CAT_COLORS[k]}"></span>${k} ${c[k]}`;
-    b.onclick=()=>{activeCat=k;buildFilters();renderList();};
+    b.onclick=()=>{activeCat=k;shown=PAGE;buildFilters();renderList();};
     box.appendChild(b);
   });
 }
@@ -240,9 +251,10 @@ function renderList(){
   document.getElementById('newsCount').textContent = ALL.length+'건';
   const list=document.getElementById('list');
   const items=activeCat==='전체'?ALL:ALL.filter(a=>a.category===activeCat);
-  document.getElementById('countLine').textContent=items.length+'건 표시';
+  document.getElementById('countLine').textContent=items.length+'건 중 '+Math.min(shown,items.length)+'건 표시';
   if(!items.length){list.innerHTML='<div class="empty">표시할 기사가 없습니다.</div>';return;}
-  list.innerHTML=items.map(a=>{
+  const slice=items.slice(0,shown);
+  list.innerHTML=slice.map(a=>{
     const col=CAT_COLORS[a.category]||CAT_COLORS['기타'];
     const link=a.link&&a.link!=='#'?`href="${a.link}" target="_blank" rel="noopener"`:'';
     return `<article style="border-left-color:${col}">
@@ -253,12 +265,18 @@ function renderList(){
       ${a.source?`<div class="a-src">${esc(a.source)}</div>`:''}
     </article>`;
   }).join('');
+  if(items.length>shown){
+    const btn=document.createElement('button');
+    btn.className='more'; btn.textContent='더 보기 (+'+Math.min(PAGE,items.length-shown)+')';
+    btn.onclick=()=>{shown+=PAGE;renderList();};
+    list.appendChild(btn);
+  }
 }
 
 function renderEdu(){
   document.getElementById('eduCount').textContent = ALL_EDU.length+'건';
   const box=document.getElementById('eduList');
-  if(!ALL_EDU.length){box.innerHTML='<div class="edu-empty">오늘 올라온 교육·세미나가 없습니다.</div>';return;}
+  if(!ALL_EDU.length){box.innerHTML='<div class="edu-empty">이 기간에 올라온 교육·세미나가 없습니다.</div>';return;}
   box.innerHTML = ALL_EDU.map(e=>{
     const link=e.link&&e.link!=='#'?`href="${e.link}" target="_blank" rel="noopener"`:'';
     return `<a class="edu-card" ${link}>
@@ -296,6 +314,7 @@ function fmtDate(d,withWeekday){
 function pad(n){return String(n).padStart(2,'0');}
 function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
 
+bindPeriod();
 load();
 </script>
 </body>
